@@ -132,7 +132,19 @@
       <optional>true</optional>
     </dependency>
   </dependencies>
-
+  <distributionManagement> 
+    <repository>
+      <id>First</id>
+      <url>https://pkgs.dev.azure.com/pverenkar90/Try/_packaging/First/maven/v1</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    
+  </distributionManagement> 
   <build>
     <plugins>
       <plugin>
@@ -292,6 +304,16 @@
       <id>spring-snapshots</id>
       <name>Spring Snapshots</name>
       <url>https://repo.spring.io/snapshot</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>First</id>
+      <url>https://pkgs.dev.azure.com/pverenkar90/Try/_packaging/First/maven/v1</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
