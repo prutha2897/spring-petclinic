@@ -14,7 +14,7 @@ variables:
   minor: 0
   
   Version.MajorMinor: 1.0
-  Version.Revision: $[counter(variables['Version.MajorMinor'],-1)]
+  Version.Revision: $[counter(variables['Version.MajorMinor'],0)]
 
 #name: $(major).$(minor)$(Rev:.r)
 name: $(Version.MajorMinor).$(Version.Revision)
