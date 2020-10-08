@@ -10,13 +10,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  major: 1
-  minor: 0
   
   Version.MajorMinor: 1.0
   Version.Revision: $[counter(variables['Version.MajorMinor'],0)]
 
-#name: $(major).$(minor)$(Rev:.r)
+
 name: $(Version.MajorMinor).$(Version.Revision)
 
 steps:
@@ -34,5 +32,21 @@ steps:
 # Publish build artifacts
 # Publish build artifacts to Azure Pipelines or a Windows file share
 
-    
 
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: '**/*.jar'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()    
+
+
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: '**/*.jar'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
